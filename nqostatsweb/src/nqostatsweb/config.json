@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "DataAccessMsSqlServerProvider": "server=localhost;port=3306;database=statsdb;uid=stats;password=stats"
+
+  }
+}

@@ -1,0 +1,67 @@
+@*@model nqostatsweb.Models.Player
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Player</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@
+@model IEnumerable<nqostatsweb.Models.MatchPlayerStats>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Skill Stats for Matches</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KillEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeaponEfficiency)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamColor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KillEfficiency)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeaponEfficiency)
+                </td>
+                <td>
+                    <a asp-action="Index">Back to List</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

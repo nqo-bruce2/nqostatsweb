@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E430DD11-7DFF-43A9-A220-1D8EBCA59687}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B1C18AB2-2B87-4BD4-B612-EF0AA7267C0A}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nqostatsweb", "src\nqostatsweb\nqostatsweb.xproj", "{9D9C1822-467A-4DDB-BC17-69DE7027407A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stat-parser", "..\..\csharp-stat-parser\stat-parser\stat-parser.csproj", "{584E6F74-8F00-4E4E-85A3-86D3EC496FB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D9C1822-467A-4DDB-BC17-69DE7027407A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D9C1822-467A-4DDB-BC17-69DE7027407A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D9C1822-467A-4DDB-BC17-69DE7027407A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D9C1822-467A-4DDB-BC17-69DE7027407A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584E6F74-8F00-4E4E-85A3-86D3EC496FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584E6F74-8F00-4E4E-85A3-86D3EC496FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584E6F74-8F00-4E4E-85A3-86D3EC496FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584E6F74-8F00-4E4E-85A3-86D3EC496FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9D9C1822-467A-4DDB-BC17-69DE7027407A} = {E430DD11-7DFF-43A9-A220-1D8EBCA59687}
+	EndGlobalSection
+EndGlobal
