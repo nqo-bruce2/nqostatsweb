@@ -1,0 +1,167 @@
+@model IEnumerable<nqostatsweb.Models.MatchPlayerStats>
+
+@{
+    ViewData["Title"] = "TeamPlayers";
+}
+
+<h2>TeamPlayers</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BulletEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DroppedPaks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KillEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LightningEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NailsEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfDeaths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfEnemyKills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfFrags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfSelfKills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfTeamKills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumQuadEnemyKills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumQuadSelfKills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumQuadTeamKills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfQuads)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuadEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RocketEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelfDamage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamDamage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalEfficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeaponEfficiency)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BulletEfficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DroppedPaks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KillEfficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LightningEfficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NailsEfficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfDeaths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfEnemyKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfFrags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfSelfKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfTeamKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumQuadEnemyKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumQuadSelfKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumQuadTeamKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfQuads)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuadEfficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RocketEfficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelfDamage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamDamage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalEfficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeaponEfficiency)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -39,5 +40,8 @@ namespace nqostatsweb.Models
         public int DroppedPaks { get; set; }
         public string SelfDamage { get; set; }
         public string TeamDamage { get; set; }
+
+        [ForeignKey("PlayerId")]
+        public Players Player { get; set; }
     }
 }

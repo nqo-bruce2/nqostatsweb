@@ -1,0 +1,42 @@
+@model IEnumerable<nqostatsweb.Models.Matches>
+
+@{
+    ViewData["Title"] = "All Matches";
+}
+
+<h2>All Matches</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MapName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MapName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchType)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

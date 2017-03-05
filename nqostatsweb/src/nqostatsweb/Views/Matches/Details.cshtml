@@ -1,0 +1,134 @@
+@model nqostatsweb.Models.Matches
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Match Team Details</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamVerdict)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalFrags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalQuads)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalPents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalEyes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalRL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalLG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalGL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalSNG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalNG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalMH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalRA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalYA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamTotalGA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamPlusRLPack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamMinusRLPack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamControlPercentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Teams)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamColor)
+                    <a asp-area="" asp-controller="MatchPlayers" asp-route-matchid="@item.MatchId" asp-route-teamColor="@item.TeamColor"asp-action="TeamPlayers">Players</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamVerdict)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalFrags)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalQuads)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalPents)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalEyes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalRL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalLG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalGL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalSNG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalNG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalMH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalRA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalYA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTotalGA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamPlusRLPack)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamMinusRLPack)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamControlPercentage)
+                </td>
+                <td>
+                    <a asp-action="Index">Back to List</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
