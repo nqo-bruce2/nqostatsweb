@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-nqostatsweb-60020d4d-50de-4ba6-953d-02f6af0b6e73",
 
   "dependencies": {
@@ -46,7 +46,9 @@
       "type": "build"
     },
     "SapientGuardian.EntityFrameworkCore.MySql": "7.1.19",
-    "Microsoft.EntityFrameworkCore": "1.0.1"
+    "Microsoft.EntityFrameworkCore": "1.0.1",
+    "jQWidgets_Framework": "4.5.0",
+    "jQWidgets.AspNetCore.Mvc.TagHelpers": "1.1.0"
   },
 
   "tools": {

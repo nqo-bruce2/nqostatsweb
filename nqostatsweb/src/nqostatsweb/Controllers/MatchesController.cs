@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using nqostatsweb.Data;
 using nqostatsweb.Models;
+using nqostatsweb.Models.MatchesViewModels;
 
 namespace nqostatsweb.Controllers
 {
@@ -22,7 +23,20 @@ namespace nqostatsweb.Controllers
         // GET: Matches
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Match.ToListAsync());
+            var matches = await _context.Match.ToListAsync();
+            var  listOfMatchesToDisplay = new List<MatchDisplay>();
+            foreach (var match in matches)
+            {
+                var matchToDisplay = new MatchDisplay();
+                matchToDisplay.Id = match.Id;
+                matchToDisplay.MapName = match.MapName;
+                matchToDisplay.MatchType = match.MatchType;
+                var blah = Convert.ToDateTime(match.Date).ToString("ddd M/d/yyyy 'at' H:mm:ss CST");
+                matchToDisplay.Date = blah;
+                listOfMatchesToDisplay.Add(matchToDisplay);
+            }
+            listOfMatchesToDisplay.Reverse();
+            return View(listOfMatchesToDisplay);
         }
 
         // GET: Matches/Details/5
