@@ -1,12 +1,57 @@
-@model nqostatsweb.Models.Matches
+@model IEnumerable<nqostatsweb.Models.MatchesViewModels.MatchTeamsViewModel>
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h2>Match Team Details</h2>
+<h2>Team Details</h2>
 
-<table class="table">
+@section scripts
+{
+    @*<script type="text/javascript">
+        function cellsrenderer(row, column, value)
+        {
+            return "<div style=\"text-align: center; margin-top: 5px;\"><a style=\"color:black; text-decoration:none\" href=Matches/Details/" + value + ">Details</a></div>"
+        }
+    </script>*@
+
+    <script type="text/javascript">
+        function eventHandler(event)
+        {
+            var rowData = $('#grid').jqxGrid('getrowdata', event.args.rowindex);
+            var value = rowData.MatchId;
+            var color = rowData.TeamColor
+            window.location = '/MatchPlayers/TeamPlayers?matchid='+value+'&teamColor='+color;
+	    }
+    </script>
+}
+
+<jqx-grid id="grid" on-rowclick="eventHandler()" alt-rows="true" theme="@ViewData["Theme"]" sortable="true" show-filter-row="false" filterable="true" auto-height="true" width="900" source="Model">
+    <jqx-grid-columns>
+        <jqx-grid-column hidden="true" datafield="MatchId" width="100" text="Id"></jqx-grid-column>
+        <jqx-grid-column datafield="TeamColor" width="150">Team Color</jqx-grid-column>
+        <jqx-grid-column datafield="TeamVerdict" width="150">Verdict </jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalFrags" width="150">Total Frags</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalQuads" width="150">Total Quads</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalPents" width="150">Total Pents</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalEyes" width="150">Total Eyes</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalRL" width="150">Total RL</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalLG" width="150">Total LG</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalGL" width="150">Match Type</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalSNG" width="150">Match Date</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalNG" width="150">Map Name</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalMH" width="150">Match Type</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalRA" width="150">Match Date</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalYA" width="150">Map Name</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalGA" width="150">Match Type</jqx-grid-column>
+        <jqx-grid-column datafield="TeamPlusRLPack" width="150">Gained RLs</jqx-grid-column>
+        <jqx-grid-column datafield="TeamMinusRLPack" width="150">Lost RLs</jqx-grid-column>
+        <jqx-grid-column datafield="TeamControlPercentage" cells-format="p" column-type="float" width="150">Control</jqx-grid-column>
+    </jqx-grid-columns>
+</jqx-grid>
+
+
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -131,4 +176,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@

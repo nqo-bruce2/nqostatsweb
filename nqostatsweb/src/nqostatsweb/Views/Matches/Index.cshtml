@@ -1,18 +1,4 @@
-@*<script src="~/jqwidgets/jqxbuttons.js"></script>
-<script src="~/jqwidgets/jqxscrollbar.js"></script>
-<script src="~/jqwidgets/jqxgrid.js"></script>
-<script src="~/jqwidgets/jqxgrid.edit.js"></script>
-<script src="~/jqwidgets/jqxgrid.columns-resize.js"></script>
-<script src="~/jqwidgets/jqxgrid.filter.js"></script>
-<script src="~/jqwidgets/jqxgrid.selection.js"></script>
-<script src="~/jqwidgets/jqxgrid.sort.js"></script>
-<script src="~/jqwidgets/jqxgrid.pager.js"></script>
-<script src="~/jqwidgets/jqxgrid.aggregates.js"></script>
-<script src="~/jqwidgets/jqxgrid.grouping.js"></script>
-<script src="~/jqwidgets/jqxmenu.js"></script>
-<script src="~/jqwidgets/jqxlistbox.js"></script>
-<script src="~/jqwidgets/jqxdropdownlist.js"></script>*@
-@model IEnumerable<nqostatsweb.Models.MatchesViewModels.MatchDisplay>
+@model IEnumerable<nqostatsweb.Models.MatchesViewModels.MatchViewModel>
 
 @{
     ViewData["Title"] = "All Matches";
@@ -24,11 +10,7 @@
     <script type="text/javascript">
         function cellsrenderer(row, column, value)
         {
-        //return "<div style='height: 100%; width: 100%; background: #ffaaaa;'><span style='margin-top: 6px; position: absolute; margin-left: 5px; color: #ffff00;'>" + value + "</span></div>";
-        //return "<a asp-action=\"Details\" asp-route-id=" + value + ">" + value + "</a>";
-        //return "<a asp-action=" + "Details" + " asp-route-id="+value+">Details</a>"
-        return "<div style=\"text-align: center; margin-top: 5px;\"><a style=\"color:black; text-decoration:none\" href=Matches/Details/" + value + ">Details</a></div>"
-
+            return "<div style=\"text-align: center; margin-top: 5px;\"><a style=\"color:black; text-decoration:none\" href=Matches/Details/" + value + ">Details</a></div>"
         }
     </script>
 
@@ -42,48 +24,13 @@
     </script>
 }
 
-<jqx-grid id="grid" on-rowclick="eventHandler()" theme="@ViewData["Theme"]" sortable="true" show-filter-row="true" filterable="true" auto-height="true" width="750" source="Model">
+<jqx-grid id="grid" alt-rows="true" on-rowclick="eventHandler()" theme="@ViewData["Theme"]" sortable="true" show-filter-row="true" filterable="true" auto-height="true" width="750" source="Model">
     <jqx-grid-columns>
         <jqx-grid-column hidden="true" datafield="Id" cells-renderer="cellsrenderer()" width="100"  text="Details" ></jqx-grid-column>
         @*<jqx-grid-column datafield="Date" filter-type="string" filter-condition="contains" cells-format="ddd M/d/yyyy 'at' H:mm:ss CST" width="300">Match Date</jqx-grid-column>*@
         <jqx-grid-column datafield="Date" width="300">Match Date</jqx-grid-column>
-        @*<jqx-grid-column datafield="MatchId" width="100" text="MatchId"></jqx-grid-column>*@
         <jqx-grid-column datafield="MapName" width="150">Map Name</jqx-grid-column>
         <jqx-grid-column datafield="MatchType" width="300">Match Type</jqx-grid-column>
-
     </jqx-grid-columns>
 </jqx-grid>
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MapName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MatchType)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MapName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatchType)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
+
