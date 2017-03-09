@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace nqostatsweb.Models.MatchesViewModels
 {
-    public class MatchDisplay
+    public class MatchViewModel
     {
         public int Id { get; set; }
         public string MatchType { get; set; }

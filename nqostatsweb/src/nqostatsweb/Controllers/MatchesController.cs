@@ -24,10 +24,10 @@ namespace nqostatsweb.Controllers
         public async Task<IActionResult> Index()
         {
             var matches = await _context.Match.ToListAsync();
-            var  listOfMatchesToDisplay = new List<MatchDisplay>();
+            var  listOfMatchesToDisplay = new List<MatchViewModel>();
             foreach (var match in matches)
             {
-                var matchToDisplay = new MatchDisplay();
+                var matchToDisplay = new MatchViewModel();
                 matchToDisplay.Id = match.Id;
                 matchToDisplay.MapName = match.MapName;
                 matchToDisplay.MatchType = match.MatchType;
@@ -53,7 +53,33 @@ namespace nqostatsweb.Controllers
                 return NotFound();
             }
 
-            return View(match);
+            var listOfTeamsToDisplay = new List<MatchTeamsViewModel>();
+            foreach (var team in match.Teams)
+            {
+                var teamToDisplay = new MatchTeamsViewModel();
+                teamToDisplay.Id = team.Id;
+                teamToDisplay.MatchId = team.MatchId;
+                teamToDisplay.TeamColor = team.TeamColor;
+                teamToDisplay.TeamVerdict = team.TeamVerdict;
+                teamToDisplay.TeamTotalFrags = team.TeamTotalFrags;
+                teamToDisplay.TeamTotalQuads = team.TeamTotalQuads;
+                teamToDisplay.TeamTotalPents = team.TeamTotalPents;
+                teamToDisplay.TeamTotalEyes = team.TeamTotalEyes;
+                teamToDisplay.TeamTotalRL = team.TeamTotalRL;
+                teamToDisplay.TeamTotalLG = team.TeamTotalLG;
+                teamToDisplay.TeamTotalGL = team.TeamTotalGL;
+                teamToDisplay.TeamTotalSNG = team.TeamTotalSNG;
+                teamToDisplay.TeamTotalNG = team.TeamTotalNG;
+                teamToDisplay.TeamTotalMH = team.TeamTotalMH;
+                teamToDisplay.TeamTotalRA = team.TeamTotalRA;
+                teamToDisplay.TeamTotalYA = team.TeamTotalYA;
+                teamToDisplay.TeamTotalGA = team.TeamTotalGA;
+                teamToDisplay.TeamPlusRLPack = team.TeamPlusRLPack;
+                teamToDisplay.TeamMinusRLPack = team.TeamMinusRLPack;
+                teamToDisplay.TeamControlPercentage = (float)team.TeamControlPercentage*100;
+                listOfTeamsToDisplay.Add(teamToDisplay);                
+    }
+            return View(listOfTeamsToDisplay);
         }
 
         // GET: Matches/Create
