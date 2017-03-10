@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using nqostatsweb.Models;
+using nqostatsweb.Models.PlayersViewModels;
 
 namespace nqostatsweb.Data
 {
@@ -39,5 +40,6 @@ namespace nqostatsweb.Data
         public DbSet<Players> Players { get; set; }
         public DbSet<MatchPlayerStats> MatchPlayerStats { get; set; }
         public DbSet<MatchTeamStats> MatchTeamStats { get; set; }
+        public DbSet<TopQuadsViewModel> TopQuadsViewModel { get; set; }
     }
 }
