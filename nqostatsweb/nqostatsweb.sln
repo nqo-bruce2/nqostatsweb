@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E430DD11-7DFF-43A9-A220-1D8EBCA59687}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B1C18AB2-2B87-4BD4-B612-EF0AA7267C0A}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nqostatsweb", "src\nqostatsweb\nqostatsweb.xproj", "{9D9C1822-467A-4DDB-BC17-69DE7027407A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nqostatsweb", "src\nqostatsweb\nqostatsweb.csproj", "{9D9C1822-467A-4DDB-BC17-69DE7027407A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

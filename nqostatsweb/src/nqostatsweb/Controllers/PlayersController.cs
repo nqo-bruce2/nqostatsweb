@@ -46,6 +46,27 @@ namespace nqostatsweb.Controllers
         }
 
         // GET: Players/Create
+        public async Task<IActionResult> TopFiveQuads()
+        {
+            List<MatchPlayerStats> listItems = new List<MatchPlayerStats>();
+
+            var items = (from db in _context.MatchPlayerStats
+                         group db by db.PlayerId into g
+                         select new
+                         {
+                             Id = g.Key,
+                             Sum = g.Sum(oi => oi.NumberOfQuads),
+                         });
+
+            items = items.OrderByDescending(x => x.Sum);
+            await items.ToListAsync();
+            items = items.Take(5);
+
+            var temp = _context.MatchPlayerStats.ToListAsync();
+            return View(await _context.Players.ToListAsync());
+        }
+
+        // GET: Players/Create
         public IActionResult Create()
         {
             return View();
