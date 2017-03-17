@@ -1,0 +1,29 @@
+@model IEnumerable<nqostatsweb.Models.PlayersViewModels.TopWinPercentViewModel>
+
+    @{
+    ViewData["Title"] = "Default";
+    }
+
+    <table class="table">
+        <tbody>
+
+            @{
+            var temp = 0;
+            foreach (var item in Model)
+            {
+                temp++;
+                <tr>
+                    <td>
+                        @temp
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WinPercentage)
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>

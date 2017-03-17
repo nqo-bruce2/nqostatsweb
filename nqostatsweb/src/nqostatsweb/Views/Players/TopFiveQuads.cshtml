@@ -27,21 +27,17 @@
     <div class="span8">
         <div class="row-fluid">
             <div class="span6">
-                <div class="well"><h4>Hot Streak</h4>
-                    1. @Html.DisplayNameFor(model => model.Name)
-                    <br />2. @Html.DisplayNameFor(model => model.Name)
-                    <br />3. @Html.DisplayNameFor(model => model.Name)
-                    <br />4. @Html.DisplayNameFor(model => model.Name)
-                    <br />5. @Html.DisplayNameFor(model => model.Name)
+                <div class="well"><h4>Win Streak</h4>
+                    <div>
+                        @await Component.InvokeAsync("TopWinStreak")
+                    </div>
                 </div>
             </div>
             <div class="span6">
                 <div class="well"><h4>Total Wins</h4>
-                    1. @Html.DisplayNameFor(model => model.Name)
-                    <br />2. @Html.DisplayNameFor(model => model.Name)
-                    <br />3. @Html.DisplayNameFor(model => model.Name)
-                    <br />4. @Html.DisplayNameFor(model => model.Name)
-                    <br />5. @Html.DisplayNameFor(model => model.Name)
+                    <div>
+                        @await Component.InvokeAsync("TopWins")
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,11 +51,9 @@
             </div>
             <div class="span6">
                 <div class="well"><h4>Total Frags</h4>
-                    1. @Html.DisplayNameFor(model => model.Name)
-                    <br />2. @Html.DisplayNameFor(model => model.Name)
-                    <br />3. @Html.DisplayNameFor(model => model.Name)
-                    <br />4. @Html.DisplayNameFor(model => model.Name)
-                    <br />5. @Html.DisplayNameFor(model => model.Name)
+                    <div>
+                        @await Component.InvokeAsync("TopFrags")
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,20 +62,16 @@
 <div class="row-fluid">
     <div class="span4">
         <div class="well"><h4>Highest Avg. Efficiency</h4>
-            1. @Html.DisplayNameFor(model => model.Name)
-            <br />2. @Html.DisplayNameFor(model => model.Name)
-            <br />3. @Html.DisplayNameFor(model => model.Name)
-            <br />4. @Html.DisplayNameFor(model => model.Name)
-            <br />5. @Html.DisplayNameFor(model => model.Name)
+            <div>
+                @await Component.InvokeAsync("TopWeaponEfficiency")
+            </div>
         </div>
     </div>
     <div class="span4">
         <div class="well"><h4>Highest Win %</h4>
-            1. @Html.DisplayNameFor(model => model.Name)
-            <br />2. @Html.DisplayNameFor(model => model.Name)
-            <br />3. @Html.DisplayNameFor(model => model.Name)
-            <br />4. @Html.DisplayNameFor(model => model.Name)
-            <br />5. @Html.DisplayNameFor(model => model.Name)
+            <div>
+                @await Component.InvokeAsync("TopWinPercent")
+            </div>
         </div>
     </div>
     <div class="span4">
