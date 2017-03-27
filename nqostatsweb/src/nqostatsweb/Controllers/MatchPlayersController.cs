@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using nqostatsweb.Data;
 using nqostatsweb.Models;
+using nqostatsweb.Models.MatchesViewModels;
 
 namespace nqostatsweb.Controllers
 {
@@ -29,7 +30,45 @@ namespace nqostatsweb.Controllers
         public async Task<IActionResult> TeamPlayers(int? matchId, string teamColor)
         {
             var playas = (await _context.MatchPlayerStats.Include(p => p.Player).Where(x => x.TeamColor.Equals(teamColor) && x.MatchId.Equals(matchId)).ToListAsync());
-            return View(playas);
+            var listOfMatchTeamPlayersToDisplay = new List<MatchTeamPlayerStatsViewModel>();
+            foreach (var player in playas)
+            {
+                var matchPlayerStats = new MatchTeamPlayerStatsViewModel();
+                matchPlayerStats.PlayerId = player.PlayerId;
+                matchPlayerStats.Name = player.Player.Name.Replace(@"\", "\\\\");
+                matchPlayerStats.TeamColor = player.TeamColor;
+                matchPlayerStats.KillEfficiency = ConvertEfficiency(player.KillEfficiency);
+                matchPlayerStats.WeaponEfficiency = ConvertEfficiency(player.WeaponEfficiency);
+                matchPlayerStats.NumberOfQuads = player.NumberOfQuads;
+                matchPlayerStats.QuadEfficiency = ConvertEfficiency(player.QuadEfficiency);
+                matchPlayerStats.NumQuadEnemyKills = player.NumQuadEnemyKills;
+                matchPlayerStats.NumQuadSelfKills = player.NumQuadSelfKills;
+                matchPlayerStats.NumQuadTeamKills = player.NumQuadTeamKills;
+                matchPlayerStats.NumOfFrags = player.NumOfFrags;
+                matchPlayerStats.NumOfEnemyKills = player.NumOfEnemyKills;
+                matchPlayerStats.NumOfSelfKills = player.NumOfSelfKills;
+                matchPlayerStats.NumOfTeamKills = player.NumOfTeamKills;
+                matchPlayerStats.NumOfDeaths = player.NumOfDeaths;
+                matchPlayerStats.DroppedPaks = player.DroppedPaks;
+                matchPlayerStats.SelfDamage = ConvertEfficiency(player.SelfDamage);
+                matchPlayerStats.TeamDamage = ConvertEfficiency(player.TeamDamage);
+                matchPlayerStats.BulletEfficiency = ConvertEfficiency(player.BulletEfficiency);
+                matchPlayerStats.NailsEfficiency = ConvertEfficiency(player.NailsEfficiency);
+                matchPlayerStats.RocketEfficiency = ConvertEfficiency(player.RocketEfficiency);
+                matchPlayerStats.LightningEfficiency = ConvertEfficiency(player.LightningEfficiency);
+                matchPlayerStats.TotalEfficiency = ConvertEfficiency(player.TotalEfficiency);
+                listOfMatchTeamPlayersToDisplay.Add(matchPlayerStats);
+            }
+            return View(listOfMatchTeamPlayersToDisplay);
+
+            //return View(playas);
+        }
+
+        private string ConvertEfficiency(decimal? valueToconvert)
+        {
+            if (valueToconvert.HasValue)
+                return Convert.ToInt32(valueToconvert * 100) + "%";
+            return "N/A";
         }
 
         // GET: MatchPlayers/Details/5

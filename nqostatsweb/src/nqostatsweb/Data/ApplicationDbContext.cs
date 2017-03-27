@@ -46,6 +46,7 @@ namespace nqostatsweb.Data
         public DbSet<TopFragsViewModel> TopFragsViewModel { get; set; }
         public DbSet<TopWeaponEfficiencyViewModel> TopWeaponEfficiencyViewModel { get; set; }
         public DbSet<TopWinPercentViewModel> TopWinPercentViewModel { get; set; }
+        public DbSet<TopKDRViewModel> TopKDRViewModel { get; set; }
 
     }
 }

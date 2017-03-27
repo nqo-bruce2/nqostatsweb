@@ -1,4 +1,72 @@
-@model IEnumerable<nqostatsweb.Models.MatchPlayerStats>
+@model IEnumerable<nqostatsweb.Models.MatchesViewModels.MatchTeamPlayerStatsViewModel>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Team Details</h2>
+
+@section scripts
+{
+    <script type="text/javascript">
+        function eventHandler(event)
+        {
+            var rowData = $('#grid').jqxGrid('getrowdata', event.args.rowindex);
+            var value = rowData.MatchId;
+            var color = rowData.TeamColor
+            window.location = '/MatchPlayers/TeamPlayers?matchid='+value+'&teamColor='+color;
+	    }
+    </script>
+}
+
+<jqx-grid id="grid" on-rowclick="eventHandler()" alt-rows="true" theme="@ViewData["Theme"]" sortable="true" show-filter-row="false" filterable="true" auto-height="true" width="900" source="Model">
+    <jqx-grid-columns>
+        <jqx-grid-column hidden="true" datafield="PlayerId" width="100" text="Id"></jqx-grid-column>
+        <jqx-grid-column datafield="Name" column-type="string" width="150">Name</jqx-grid-column>
+        <jqx-grid-column datafield="KillEfficiency" width="150">Kill Efficiency </jqx-grid-column>
+        <jqx-grid-column datafield="WeaponEfficiency" width="150">Weapon Efficiency</jqx-grid-column>
+        <jqx-grid-column datafield="NumberOfQuads" width="150">Num of Quads</jqx-grid-column>
+        <jqx-grid-column datafield="QuadEfficiency" width="150">Quad Efficiency</jqx-grid-column>
+        <jqx-grid-column datafield="NumQuadEnemyKills" width="150">Quad Enemy Kills</jqx-grid-column>
+        <jqx-grid-column datafield="NumQuadSelfKills" width="150">Quad Self Kills</jqx-grid-column>
+        <jqx-grid-column datafield="NumQuadTeamKills" width="150">Quad Team Kills</jqx-grid-column>
+        <jqx-grid-column datafield="NumOfFrags" width="150">Total Frags</jqx-grid-column>
+        <jqx-grid-column datafield="NumOfEnemyKills" width="150">Enemy Kills</jqx-grid-column>
+        <jqx-grid-column datafield="NumOfSelfKills" width="150">Self Kills</jqx-grid-column>
+        <jqx-grid-column datafield="NumOfTeamKills" width="150">Team Kills</jqx-grid-column>
+        <jqx-grid-column datafield="NumOfDeaths" width="150">Deaths</jqx-grid-column>
+        <jqx-grid-column datafield="DroppedPaks" width="150">Dropped Paks</jqx-grid-column>
+        <jqx-grid-column datafield="SelfDamage" width="150">Self Dmg</jqx-grid-column>
+        <jqx-grid-column datafield="TeamDamage" width="150">Team Dmg</jqx-grid-column>
+        <jqx-grid-column datafield="BulletEfficiency" width="150">SG Eff</jqx-grid-column>    
+        <jqx-grid-column datafield="NailsEfficiency" cells-format="p" column-type="float" width="150">NG Eff</jqx-grid-column>    
+        <jqx-grid-column datafield="RocketEfficiency" cells-format="p" column-type="float" width="150">RL Eff</jqx-grid-column>    
+        <jqx-grid-column datafield="LightningEfficiency" cells-format="p" column-type="float" width="150">LG Eff</jqx-grid-column>    
+        <jqx-grid-column datafield="TotalEfficiency" cells-format="p" column-type="float" width="150">Total Eff</jqx-grid-column>    
+    @*<jqx-grid-column hidden="true" datafield="MatchId" width="100" text="Id"></jqx-grid-column>
+        <jqx-grid-column datafield="TeamColor" width="150">Team Color</jqx-grid-column>
+        <jqx-grid-column datafield="TeamVerdict" width="150">Verdict </jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalFrags" width="150">Total Frags</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalQuads" width="150">Total Quads</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalPents" width="150">Total Pents</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalEyes" width="150">Total Eyes</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalRL" width="150">Total RL</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalLG" width="150">Total LG</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalGL" width="150">Match Type</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalSNG" width="150">Match Date</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalNG" width="150">Map Name</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalMH" width="150">Match Type</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalRA" width="150">Match Date</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalYA" width="150">Map Name</jqx-grid-column>
+        <jqx-grid-column datafield="TeamTotalGA" width="150">Match Type</jqx-grid-column>
+        <jqx-grid-column datafield="TeamPlusRLPack" width="150">Gained RLs</jqx-grid-column>
+        <jqx-grid-column datafield="TeamMinusRLPack" width="150">Lost RLs</jqx-grid-column>
+        <jqx-grid-column datafield="TeamControlPercentage" cells-format="p" column-type="float" width="150">Control</jqx-grid-column>*@
+    </jqx-grid-columns>
+</jqx-grid>
+
+
+@*@model IEnumerable<nqostatsweb.Models.MatchPlayerStats>
 
 @{
     ViewData["Title"] = "TeamPlayers";
@@ -154,11 +222,8 @@
                 @Html.DisplayFor(modelItem => item.WeaponEfficiency)
             </td>
             <td>
-                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
 }
     </tbody>
-</table>
+</table>*@

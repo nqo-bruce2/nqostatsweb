@@ -60,6 +60,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Shared\Components\TopKDR\" />
     <Folder Include="Views\Shared\Components\TopWinStreak\" />
     <Folder Include="Views\Shared\Components\TopWinPercent\" />
     <Folder Include="Views\Shared\Components\TopWinPercent\" />

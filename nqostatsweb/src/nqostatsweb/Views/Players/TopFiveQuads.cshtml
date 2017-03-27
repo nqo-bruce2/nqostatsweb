@@ -30,6 +30,11 @@
                 <div class="well"><h4>Win Streak</h4>
                     <div>
                         @await Component.InvokeAsync("TopWinStreak")
+                        @*<cache expires-after="@TimeSpan.FromMinutes(10)">
+                            
+                            *last updated  @DateTime.Now.ToString()
+                        </cache>*@
+                        
                     </div>
                 </div>
             </div>
@@ -75,12 +80,10 @@
         </div>
     </div>
     <div class="span4">
-        <div class="well"><h4>Something</h4>
-            1. @Html.DisplayNameFor(model => model.Name)
-            <br />2. @Html.DisplayNameFor(model => model.Name)
-            <br />3. @Html.DisplayNameFor(model => model.Name)
-            <br />4. @Html.DisplayNameFor(model => model.Name)
-            <br />5. @Html.DisplayNameFor(model => model.Name)
+        <div class="well"><h4>Highest KDR</h4>
+            <div>
+                @await Component.InvokeAsync("TopKDR")
+            </div>
         </div>
     </div>
 </div>
