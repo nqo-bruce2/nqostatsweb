@@ -30,7 +30,7 @@ namespace nqostatsweb.ViewComponents
         private Task<List<TopWinPercentViewModel>> GetItemsAsync()
         {
             // call top 5 win percent
-            var items = _context.Set<TopWinPercentViewModel>().FromSql("call Top5WinPercent");
+            var items = _context.Set<TopWinPercentViewModel>().FromSql("call Top5WinPercent('2017-03-21','2017-06-21')");
             items.ToListAsync();
             items = items.Take(5);
 

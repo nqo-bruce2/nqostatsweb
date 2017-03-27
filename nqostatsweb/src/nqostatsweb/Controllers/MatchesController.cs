@@ -23,7 +23,11 @@ namespace nqostatsweb.Controllers
         // GET: Matches
         public async Task<IActionResult> Index()
         {
-            var matches = await _context.Match.ToListAsync();
+            var startDate = new DateTime(2017, 03, 21);
+            var endDate = new DateTime(2017, 06, 21);
+
+            var matches = await _context.Match.Where(x => x.Date >= startDate && x.Date < endDate).ToListAsync();
+            //var matches = await _context.Match.ToListAsync();
             var  listOfMatchesToDisplay = new List<MatchViewModel>();
             foreach (var match in matches)
             {

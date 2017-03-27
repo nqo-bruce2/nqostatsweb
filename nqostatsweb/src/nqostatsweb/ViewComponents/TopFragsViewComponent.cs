@@ -25,8 +25,13 @@ namespace nqostatsweb.ViewComponents
         }
         private Task<List<TopFragsViewModel>> GetItemsAsync()
         {
+            var startDate = new DateTime(2017, 03, 21);
+            var endDate = new DateTime(2017, 06, 21);
+
             var items = from T1 in _context.Players
                         join T2 in _context.MatchPlayerStats on T1.Id equals T2.PlayerId
+                        join T3 in _context.Match on T2.MatchId equals T3.Id
+                        where T3.Date >= startDate && T3.Date < endDate
                         group new
                         {
                             T1,

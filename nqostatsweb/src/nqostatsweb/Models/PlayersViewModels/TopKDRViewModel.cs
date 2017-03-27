@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace nqostatsweb.Models.PlayersViewModels
 {
-    public class TopWinStreakViewModel
+    public class TopKDRViewModel
     {
         [Key]
         public int PlayerId { get; set; }
         public string Name { get; set; }
-        public int Streak { get; set; }
+        [DisplayFormat(DataFormatString = "{0:F3}")]
+        public decimal KDR { get; set; }
         //public int MatchesPlayed { get; set; }
 
-        public TopWinStreakViewModel()
+        public TopKDRViewModel()
         {
 
         }
