@@ -31,5 +31,10 @@ namespace nqostatsweb.Controllers
         {
             return View();
         }
+
+        public IActionResult CoachsWords()
+        {
+            return View();
+        }
     }
 }

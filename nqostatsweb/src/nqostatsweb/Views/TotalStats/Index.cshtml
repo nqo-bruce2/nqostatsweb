@@ -1,0 +1,28 @@
+@model IEnumerable<nqostatsweb.Models.TotalStatsViewModels.TotalStatsViewModel>
+
+@{
+    ViewData["Title"] = "Total Stats";
+}
+
+<h2>All Averages</h2>
+
+<jqx-grid id="grid" alt-rows="true" theme="@ViewData["Theme"]" sortable="true" show-filter-row="false" filterable="true" auto-height="true" width="1024" source="Model">
+    <jqx-grid-columns>
+        <jqx-grid-column hidden="true" datafield=PlayerId width="100" text="Id"></jqx-grid-column>
+        <jqx-grid-column datafield="Name" column-type="string" width="150" pinned="true">Name</jqx-grid-column>
+        <jqx-grid-column datafield="Games" column-type="string" width="150">Games</jqx-grid-column>
+        <jqx-grid-column datafield="Wins" column-type="string" width="150">Wins</jqx-grid-column>
+        <jqx-grid-column datafield="Losses" column-type="string" width="150">Losses</jqx-grid-column>
+        <jqx-grid-column datafield="Frags" cells-format="p" column-type="float" width="150">Frags</jqx-grid-column>
+        <jqx-grid-column datafield="Deaths" column-type="string" width="150">Deaths</jqx-grid-column>
+        <jqx-grid-column datafield="Quads" column-type="string" width="150">Quads</jqx-grid-column>
+        <jqx-grid-column datafield="TKs" column-type="string" width="150">TKs</jqx-grid-column>
+        <jqx-grid-column datafield="SelfKill" column-type="string" width="150">SelfKill</jqx-grid-column>
+        <jqx-grid-column datafield="DroppedPaks" cells-format="p" column-type="float" width="150">DroppedPaks</jqx-grid-column>
+        <jqx-grid-column datafield="QuadFrags" cells-format="p" column-type="float" width="150">QuadFrags</jqx-grid-column>
+        <jqx-grid-column datafield="OneVOnes" cells-format="p" column-type="float" width="150">OnevOne</jqx-grid-column>
+        <jqx-grid-column datafield="TwoVTwos" cells-format="p" column-type="float" width="150">TwovTwo</jqx-grid-column>
+        <jqx-grid-column datafield="ThreeVThrees" cells-format="p" column-type="float" width="150">ThreevThree</jqx-grid-column>
+        <jqx-grid-column datafield="FourVFours" cells-format="p" column-type="float" width="150">FourvFour</jqx-grid-column>
+    </jqx-grid-columns>
+</jqx-grid>

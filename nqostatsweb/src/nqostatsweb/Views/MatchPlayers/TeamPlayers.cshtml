@@ -6,20 +6,8 @@
 
 <h2>Team Details</h2>
 
-@section scripts
-{
-    <script type="text/javascript">
-        function eventHandler(event)
-        {
-            var rowData = $('#grid').jqxGrid('getrowdata', event.args.rowindex);
-            var value = rowData.MatchId;
-            var color = rowData.TeamColor
-            window.location = '/MatchPlayers/TeamPlayers?matchid='+value+'&teamColor='+color;
-	    }
-    </script>
-}
 
-<jqx-grid id="grid" on-rowclick="eventHandler()" alt-rows="true" theme="@ViewData["Theme"]" sortable="true" show-filter-row="false" filterable="true" auto-height="true" width="900" source="Model">
+<jqx-grid id="grid" alt-rows="true" theme="@ViewData["Theme"]" sortable="true" show-filter-row="false" filterable="true" auto-height="true" width="900" source="Model">
     <jqx-grid-columns>
         <jqx-grid-column hidden="true" datafield="PlayerId" width="100" text="Id"></jqx-grid-column>
         <jqx-grid-column datafield="Name" column-type="string" width="150">Name</jqx-grid-column>

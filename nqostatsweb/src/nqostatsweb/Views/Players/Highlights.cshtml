@@ -1,0 +1,72 @@
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" />
+<br/>
+<br />
+<br />
+<br />
+<div class="row-fluid">
+    <div class="span4"><div class="well"><h4>Recent Matches</h4>
+        </div>
+    </div>
+    <div class="span8">
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="well"><h4>Win Streak</h4>
+                    <div>
+                        <cache expires-after="@TimeSpan.FromMinutes(10)">
+                            @await Component.InvokeAsync("TopWinStreak")                            
+                            *last updated  @DateTime.Now.ToString()
+                        </cache>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="well"><h4>Total Wins</h4>
+                    <div>
+                        @await Component.InvokeAsync("TopWins")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="well"><h4>Total Quads</h4>
+                    <div>
+                        @await Component.InvokeAsync("TopQuads")
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="well"><h4>Total Frags</h4>
+                    <div>
+                        @await Component.InvokeAsync("TopFrags")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span4">
+        <div class="well"><h4>Highest Avg. Efficiency</h4>
+            <div>
+                @await Component.InvokeAsync("TopWeaponEfficiency")
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="well"><h4>Highest Win %</h4>
+            <div>
+                @await Component.InvokeAsync("TopWinPercent")
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="well"><h4>Highest KDR</h4>
+            <div>
+                @await Component.InvokeAsync("TopKDR")
+            </div>
+        </div>
+    </div>
+</div>

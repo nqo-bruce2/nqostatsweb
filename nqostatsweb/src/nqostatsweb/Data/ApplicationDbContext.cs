@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using nqostatsweb.Models;
 using nqostatsweb.Models.PlayersViewModels;
+using nqostatsweb.Models.AllAveragesViewModels;
+using nqostatsweb.Models.TotalStatsViewModels;
 
 namespace nqostatsweb.Data
 {
@@ -47,6 +49,9 @@ namespace nqostatsweb.Data
         public DbSet<TopWeaponEfficiencyViewModel> TopWeaponEfficiencyViewModel { get; set; }
         public DbSet<TopWinPercentViewModel> TopWinPercentViewModel { get; set; }
         public DbSet<TopKDRViewModel> TopKDRViewModel { get; set; }
+        public DbSet<TopTeamKillsViewModel> TopTeamKillsViewModel { get; set; }
+        public DbSet<AllAveragesViewModel> AllAveragesViewModel { get; set; }
+        public DbSet<TotalStatsViewModel> TotalStatsViewModel { get; set; }
 
     }
 }

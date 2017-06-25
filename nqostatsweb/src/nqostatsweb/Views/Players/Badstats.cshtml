@@ -1,0 +1,32 @@
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" />
+<br />
+<br />
+<br />
+<br />
+<div class="row-fluid">
+    <div class="span4">
+        <div class="well">
+            <h4>Highest Avg. Team Kills</h4>
+            <div>
+                @await Component.InvokeAsync("TopTeamKills")
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="well">
+            <h4>Highest Avg. Dropped Paks</h4>
+            <div>
+                @*@await Component.InvokeAsync("TopWinPercent")*@
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="well">
+            <h4>Losing Streak</h4>
+            <div>
+                @*@await Component.InvokeAsync("TopKDR")*@
+            </div>
+        </div>
+    </div>
+</div>

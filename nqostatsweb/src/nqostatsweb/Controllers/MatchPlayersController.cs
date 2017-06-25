@@ -36,6 +36,8 @@ namespace nqostatsweb.Controllers
                 var matchPlayerStats = new MatchTeamPlayerStatsViewModel();
                 matchPlayerStats.PlayerId = player.PlayerId;
                 matchPlayerStats.Name = player.Player.Name.Replace(@"\", "\\\\");
+                if (player.Player.Name.StartsWith("["))
+                         matchPlayerStats.Name = "\'" + player.Player.Name + "\'";
                 matchPlayerStats.TeamColor = player.TeamColor;
                 matchPlayerStats.KillEfficiency = ConvertEfficiency(player.KillEfficiency);
                 matchPlayerStats.WeaponEfficiency = ConvertEfficiency(player.WeaponEfficiency);

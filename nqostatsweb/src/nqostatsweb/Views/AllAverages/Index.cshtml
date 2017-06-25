@@ -1,0 +1,160 @@
+<style>
+    body, html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding: 3px;
+        box-sizing: border-box;
+        margin: 0;
+    }
+</style>
+@model IEnumerable<nqostatsweb.Models.AllAveragesViewModels.AllAveragesViewModel>
+
+@{
+    ViewData["Title"] = "All Averages";
+}
+
+<h2>All Averages</h2>
+
+<jqx-grid id="grid" alt-rows="true" theme="@ViewData["Theme"]" sortable="true" show-filter-row="false" filterable="true" auto-height="true" width="1024" source="Model">
+    <jqx-grid-columns>
+        <jqx-grid-column hidden="true" datafield=PlayerId width="100" text="Id"></jqx-grid-column>
+        <jqx-grid-column datafield="Name" column-type="string" width="150" pinned="true">Name</jqx-grid-column>
+        <jqx-grid-column datafield="MatchesPlayed" column-type="string" width="150">MatchesPlayed</jqx-grid-column>
+        <jqx-grid-column datafield="AverageFrags" column-type="string" width="150">AverageFrags</jqx-grid-column>
+        <jqx-grid-column datafield="AverageDeaths" column-type="string" width="150">AverageDeaths</jqx-grid-column>
+        <jqx-grid-column datafield="AverageEff" cells-format="p" column-type="float" width="150">AverageEff</jqx-grid-column>
+        <jqx-grid-column datafield="AverageQuads" column-type="string" width="150">AverageQuads</jqx-grid-column>
+        <jqx-grid-column datafield="AvgFragsPerQuad" column-type="string" width="150">AvgFragsPerQuad</jqx-grid-column>
+        <jqx-grid-column datafield="AverageSelfKills" column-type="string" width="150">AverageSelfKills</jqx-grid-column>
+        <jqx-grid-column datafield="AverageTeamKills" column-type="string" width="150">AverageTeamKills</jqx-grid-column>
+        <jqx-grid-column datafield="AverageSelfDmg" cells-format="p" column-type="float" width="150">AverageSelfDmg</jqx-grid-column>
+        <jqx-grid-column datafield="AverageTeamDmg" cells-format="p" column-type="float" width="150">AverageTeamDmg</jqx-grid-column>
+        <jqx-grid-column datafield="SGeff" cells-format="p" column-type="float" width="150">SGeff</jqx-grid-column>
+        <jqx-grid-column datafield="NailEff" cells-format="p" column-type="float" width="150">NailEff</jqx-grid-column>
+        <jqx-grid-column datafield="RLEff" cells-format="p" column-type="float" width="150">RLEff</jqx-grid-column>
+        <jqx-grid-column datafield="LGEff" cells-format="p" column-type="float" width="150">LGEff</jqx-grid-column>
+        <jqx-grid-column datafield="WinPercentage" cells-format="p" column-type="float" width="150">WinPercentage</jqx-grid-column>
+        <jqx-grid-column datafield="KDR" cells-format="p" column-type="float" width="150">KDR</jqx-grid-column>
+    </jqx-grid-columns>
+</jqx-grid>
+
+
+<!--
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MatchesPlayed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageFrags)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageDeaths)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageEff)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageQuads)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvgFragsPerQuad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageSelfKills)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageTeamKills)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageSelfDmg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageTeamDmg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SGeff)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NailEff)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RLEff)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LGEff)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WinPercentage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KDR)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesPlayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageFrags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageDeaths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageEff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageQuads)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgFragsPerQuad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageSelfKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageTeamKills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageSelfDmg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageTeamDmg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SGeff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NailEff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RLEff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LGEff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WinPercentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KDR)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    -->
