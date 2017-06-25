@@ -53,8 +53,10 @@ namespace nqostatsweb.ViewComponents
                         };
 
             items = items.OrderByDescending(x => x.PlayerTotalNumberOfWins);
+            items = items.Where(x => !x.Name.ToLower().Equals("unknownplayer"));
             items.ToListAsync();
             items = items.Take(5);
+            
 
             return items.ToListAsync();
         }

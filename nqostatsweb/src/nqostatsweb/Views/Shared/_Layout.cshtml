@@ -65,11 +65,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Players" asp-action="TopFiveQuads">Highlights</a></li>
+                    <li><a asp-area="" asp-controller="Players" asp-action="Highlights">Highlights</a></li>
+                    <li><a asp-area="" asp-controller="Players" asp-action="Badstats">Badstats</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">Records</a></li>
+                    <li><a asp-area="" asp-controller="AllAverages" asp-action="Index">Averages</a></li>
+                    <li><a asp-area="" asp-controller="TotalStats" asp-action="Index">Totals</a></li>
                     <li><a asp-area="" asp-controller="Matches" asp-action="Index">Matches</a></li>
                     <li><a asp-area="" asp-controller="Players" asp-action="Index">Players</a></li>
                     @*<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>*@
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="CoachsWords">Coach's Words</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")

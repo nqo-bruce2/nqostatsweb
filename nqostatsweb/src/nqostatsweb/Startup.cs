@@ -101,7 +101,7 @@ namespace nqostatsweb
                     name: "default",
                     //template: "{controller=Home}/{action=Index}/{id?}");
                     //template: "{controller=Players}/{action=Index}/{id?}");
-                    template: "{controller=Players}/{action=TopFiveQuads}/{id?}");
+                    template: "{controller=Players}/{action=Highlights}/{id?}");
             });
         }
     }
